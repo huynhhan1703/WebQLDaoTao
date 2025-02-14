@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <link href="Content/pagin.css" rel="stylesheet" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         /* Set black background color, white text and some padding */
@@ -44,6 +44,7 @@
                                 <li><a href="QLMonHoc.aspx"> Môn học</a></li>
                                 <li><a href="QLKhoa.aspx"> Khoa</a></li>
                                 <li><a href="QLSinhVien.aspx"> Sinh viên</a></li>
+                                
                                 <li><a href="QLSinhVien.aspx"> Điểm</a></li>
                             </ul>
                         </li>

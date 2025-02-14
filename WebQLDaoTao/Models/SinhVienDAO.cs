@@ -52,30 +52,29 @@ namespace WebQLDaoTao.Models
             }
             return dsSinhVien;
         }
-        public int Update(string masv, string hosv, string tensv, Boolean gioitinh, DateTime ngaysinh, string noisinh, string
-        diachi, string makh)
+        public int Update(SinhVien sv)
         {
             SqlConnection conn = new
             SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
             conn.Open();
             SqlCommand cmd = new SqlCommand("update sinhvien set hosv=@hosv, tensv=@tensv, gioitinh=@gioitinh,ngaysinh = @ngaysinh, noisinh = @noisinh, diachi = @diachi, makh = @makh where masv = @masv", conn);
-            cmd.Parameters.AddWithValue("@masv", masv);
-            cmd.Parameters.AddWithValue("@hosv", hosv);
-            cmd.Parameters.AddWithValue("@tensv", tensv);
-            cmd.Parameters.AddWithValue("@gioitinh", gioitinh);
-            cmd.Parameters.AddWithValue("@ngaysinh", ngaysinh);
-            cmd.Parameters.AddWithValue("@noisinh", noisinh);
-            cmd.Parameters.AddWithValue("@diachi", diachi);
-            cmd.Parameters.AddWithValue("@makh", makh);
+            cmd.Parameters.AddWithValue("@masv", sv.MaSV);
+            cmd.Parameters.AddWithValue("@hosv", sv.HoSV);
+            cmd.Parameters.AddWithValue("@tensv", sv.TenSV);
+            cmd.Parameters.AddWithValue("@gioitinh", sv.GioiTinh);
+            cmd.Parameters.AddWithValue("@ngaysinh", sv.NgaySinh);
+            cmd.Parameters.AddWithValue("@noisinh", sv.NoiSinh);
+            cmd.Parameters.AddWithValue("@diachi", sv.DiaChi);
+            cmd.Parameters.AddWithValue("@makh", sv.MaKH);
             return cmd.ExecuteNonQuery();
         }
-        public int Delete(string masv)
+        public int Delete(SinhVien sv)
         {
             SqlConnection conn = new
             SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
             conn.Open();
             SqlCommand cmd = new SqlCommand("delete from sinhvien where masv=@masv", conn);
-            cmd.Parameters.AddWithValue("@masv", masv);
+            cmd.Parameters.AddWithValue("@masv", sv.MaSV);
             return cmd.ExecuteNonQuery();
         }
     }

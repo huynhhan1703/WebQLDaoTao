@@ -85,6 +85,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Content\pagin.css" />
     <Content Include="QLDiem.aspx" />
     <Content Include="QLKhoa.aspx" />
     <Content Include="QLMonHoc.aspx" />

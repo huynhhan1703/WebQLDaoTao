@@ -5,8 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Main" runat="server">
     <h2>QUẢN LÍ SINH VIÊN </h2>
     <hr />
-    <asp:Panel ID="Panel1" runat="server" Style="overflow: auto;" CssClass="d-inline-block">
-        <asp:GridView ID="gvsinhvien" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-hover" runat="server" DataSourceID="ods_sinhvien">
+    <div class="table-responsive">
+        <asp:GridView ID="gvsinhvien" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-hover"  DataSourceID="ods_sinhvien" AllowPaging="True" PageSize="5" DataKeyNames="MaSV"> 
             <Columns>
                 <asp:BoundField DataField="MaSV" HeaderText="Mã SV" SortExpression="MaSV" ReadOnly="true">
                     <ItemStyle HorizontalAlign="Center" Width="60px" />
@@ -49,7 +49,33 @@
                 </asp:TemplateField>
             </Columns>
              <HeaderStyle  BackColor="#0066cc" ForeColor="#ffffff" />
+            <PagerStyle CssClass="pager-style" HorizontalAlign="Center" />
         </asp:GridView>
-    </asp:Panel>
-    <asp:ObjectDataSource ID="ods_sinhvien" runat="server" SelectMethod="getAll" TypeName="WebQLDaoTao.Models.SinhVienDAO"></asp:ObjectDataSource>
+    </div>
+    <asp:ObjectDataSource ID="ods_sinhvien" runat="server" SelectMethod="getAll" TypeName="WebQLDaoTao.Models.SinhVienDAO" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
+        <DeleteParameters>
+            <asp:Parameter Name="masv" Type="String" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="masv" Type="String" />
+            <asp:Parameter Name="hosv" Type="String" />
+            <asp:Parameter Name="tensv" Type="String" />
+            <asp:Parameter Name="gioitinh" Type="Boolean" />
+            <asp:Parameter Name="ngaysinh" Type="DateTime" />
+            <asp:Parameter Name="noisinh" Type="String" />
+            <asp:Parameter Name="diachi" Type="String" />
+            <asp:Parameter Name="makh" Type="String" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="masv" Type="String" />
+            <asp:Parameter Name="hosv" Type="String" />
+            <asp:Parameter Name="tensv" Type="String" />
+            <asp:Parameter Name="gioitinh" Type="Boolean" />
+            <asp:Parameter Name="ngaysinh" Type="DateTime" />
+            <asp:Parameter Name="noisinh" Type="String" />
+            <asp:Parameter Name="diachi" Type="String" />
+            <asp:Parameter Name="makh" Type="String" />
+        </UpdateParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsKhoa" runat="server"></asp:ObjectDataSource>
 </asp:Content>
