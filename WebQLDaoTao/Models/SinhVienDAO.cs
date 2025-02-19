@@ -9,22 +9,20 @@ namespace WebQLDaoTao.Models
 {
     public class SinhVienDAO
     {
-        public int Insert(string masv, string hosv, string tensv, Boolean gioitinh, DateTime ngaysinh, string noisinh, string
-        diachi, string makh)
+        public int Insert(SinhVien sv)
         {
             SqlConnection conn = new
             SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
             conn.Open();
-            SqlCommand cmd = new SqlCommand("insert into sinhvien (masv, hosv, tensv, gioitinh,ngaysinh, noisinh, diachi, makh) values(@masv, @hosv, @tensv, @gioitinh, @ngaysinh, @noisinh, @diachi, @makh)",
-        conn);
-            cmd.Parameters.AddWithValue("@masv", masv);
-            cmd.Parameters.AddWithValue("@hosv", hosv);
-            cmd.Parameters.AddWithValue("@tensv", tensv);
-            cmd.Parameters.AddWithValue("@gioitinh", gioitinh);
-            cmd.Parameters.AddWithValue("@ngaysinh", ngaysinh);
-            cmd.Parameters.AddWithValue("@noisinh", noisinh);
-            cmd.Parameters.AddWithValue("@diachi", diachi);
-            cmd.Parameters.AddWithValue("@makh", makh);
+            SqlCommand cmd = new SqlCommand("insert into sinhvien (masv, hosv, tensv, gioitinh,ngaysinh, noisinh, diachi, makh) values(@masv, @hosv, @tensv, @gioitinh, @ngaysinh, @noisinh, @diachi, @makh)",conn);
+            cmd.Parameters.AddWithValue("@masv", sv.MaSV);
+            cmd.Parameters.AddWithValue("@hosv", sv.HoSV);
+            cmd.Parameters.AddWithValue("@tensv", sv.TenSV);
+            cmd.Parameters.AddWithValue("@gioitinh", sv.GioiTinh);
+            cmd.Parameters.AddWithValue("@ngaysinh", sv.NgaySinh);
+            cmd.Parameters.AddWithValue("@noisinh", sv.NoiSinh);
+            cmd.Parameters.AddWithValue("@diachi", sv.DiaChi);
+            cmd.Parameters.AddWithValue("@makh", sv.MaKH);
             return cmd.ExecuteNonQuery();
         }
         public List<SinhVien> getAll()
