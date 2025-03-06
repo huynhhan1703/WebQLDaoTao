@@ -4,7 +4,6 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-
 namespace WebQLDaoTao.Models
 {
     public class TaiKKhoanDAO
@@ -23,6 +22,24 @@ namespace WebQLDaoTao.Models
                 kq = true;
             }
             return kq;
+        }
+        public TaiKhoan findByUsername(string username)
+        {
+            TaiKhoan tk = null;
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("select * from  taikhoan where tendangnhap=@tendangnhap", conn);
+            cmd.Parameters.AddWithValue("@tendangnhap", username);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+                tk = new TaiKhoan {
+                    taikhoan = dr["tendangnhap"].ToString(),
+                    matkhau=dr["matkhau"].ToString(),
+                    vaitro=dr["vaitro"].ToString()
+                };
+                return tk;
+            
+           
         }
     }
 }

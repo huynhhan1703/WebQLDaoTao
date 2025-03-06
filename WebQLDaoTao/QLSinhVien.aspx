@@ -67,6 +67,8 @@
 
 
     <div class="table-responsive text-center">
+          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
         <asp:GridView ID="gvsinhvien" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-hover" DataSourceID="ods_sinhvien" AllowPaging="True" PageSize="5" DataKeyNames="MaSV">
             <Columns>
                 <asp:BoundField DataField="MaSV" HeaderText="Mã SV" SortExpression="MaSV" HeaderStyle-CssClass="text-center" ReadOnly="true">
@@ -121,6 +123,10 @@
             <HeaderStyle BackColor="#0066cc" ForeColor="#ffffff" />
             <PagerStyle CssClass="pager-style" HorizontalAlign="Center" />
         </asp:GridView>
+                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+      </ContentTemplate>
+        </asp:UpdatePanel>
+   
     </div>
     <asp:ObjectDataSource ID="ods_sinhvien" runat="server" SelectMethod="getAll" TypeName="WebQLDaoTao.Models.SinhVienDAO" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update" DataObjectTypeName="WebQLDaoTao.Models.SinhVien"></asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsKhoa" runat="server" DataObjectTypeName="WebQLDaoTao.Models.Khoa" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="getAll" TypeName="WebQLDaoTao.Models.KhoaDAO" UpdateMethod="Delete"></asp:ObjectDataSource>

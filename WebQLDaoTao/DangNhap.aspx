@@ -17,7 +17,7 @@
             <asp:ListItem Text="sb" Value="cb"></asp:ListItem>
         </asp:DropDownList>
         <br />--%>
-        <asp:Button ID="btnLogin" runat="server" Text="Đăng nhập" OnClick="btnLogin_Click" />
+        <asp:Button ID="btnLogin" runat="server" Text=" Đăng nhập" OnClick="btnLogin_Click" />
 
         <div class="col-sm-offset-2 col-sm-10">
             <asp:Label ID="lbThongbao" runat="server" Text=""></asp:Label>

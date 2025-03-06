@@ -75,5 +75,16 @@ namespace WebQLDaoTao.Models
             cmd.Parameters.AddWithValue("@masv", sv.MaSV);
             return cmd.ExecuteNonQuery();
         }
+        public bool HasGrades(string maSV)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["WebQLDaoTao_ConStr"].ConnectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM KetQua WHERE masv = @masv", conn);
+                cmd.Parameters.AddWithValue("@masv", maSV);
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
+            }
+        }
     }
 }

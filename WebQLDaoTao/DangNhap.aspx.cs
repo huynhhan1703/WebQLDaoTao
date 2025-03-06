@@ -30,5 +30,9 @@ namespace WebQLDaoTao
                 lbThongbao.Text = "dang nhap that bai";
             }
         }
+
     }
+
+
+  
 }
