@@ -42,13 +42,13 @@
                             <div style="text-align: center;">
                                 <asp:LinkButton ID="btnXoa" OnClientClick="return confirm('Bạn có chắc chắn muốn xóa điểm sinh viên này ra khỏi danh sách?')"
                                     runat="server" Text="Xóa" CssClass="btn btn-danger" OnClick="btnXoa_Click" Width="50px" Height="35px">Xóa</asp:LinkButton>
-                                <asp:CheckBox ID="chkAll" runat="server" Text="Chọn All" CssClass="btn btn-danger btn" Width="100px" Height="35px" AutoPostBack="true" OnCheckedChanged="chkAll_CheckedChanged1" />
+                                <asp:CheckBox ID="chkAll" runat="server" Text=" All" CssClass="btn btn-danger btn" Width="55px" Height="35px" AutoPostBack="true" OnCheckedChanged="chkAll_CheckedChanged1" />
                             </div>
                         </FooterTemplate>
                     </asp:TemplateField>
                 </Columns>
                 <EmptyDataTemplate>
-                    <p class="alert alert-danger">Không có dữ liệu để hiển thị !/>
+                    <p class="alert alert-danger">Không có dữ liệu để hiển thị !</p>                   
                 </EmptyDataTemplate>
                 <HeaderStyle BackColor="#0066cc" ForeColor="#ffffff" />
             </asp:GridView>

@@ -11,7 +11,7 @@ namespace WebQLDaoTao
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["username"] == null)
+            if (Session["username"] != null)
             {
                 Session.Remove("username");
                 Response.Redirect("Default.aspx");
