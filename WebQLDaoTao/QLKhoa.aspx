@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main" runat="server">
-    <h2>TRANG QUẢN TRỊ KHOA </h2>
+    <h2 class="alert alert-info">TRANG QUẢN TRỊ KHOA </h2>
     <hr />
 
     <div>
@@ -40,30 +40,34 @@
         </div>
     </div>
 
-
-
-    <asp:GridView ID="gvkhoa" runat="server" AutoGenerateColumns="False" DataSourceID="ods_khoa" CssClass="table table-bordered table-hover " DataKeyNames="MaKH">
-        <Columns>
-            <asp:BoundField DataField="MaKH" HeaderText="MaKH" SortExpression="MaKH" />
-            <asp:BoundField DataField="TenKH" HeaderText="TenKH" SortExpression="TenKH" />
-            <asp:TemplateField HeaderText="Chọn tác vụ">
-                <HeaderStyle CssClass="text-center" />
-                <ItemStyle CssClass="text-center" />
-                <ItemTemplate>
-                    <asp:Button ID="btnSua" runat="server" Text="Sửa" CommandName="Edit" CssClass="btn btn-primary" />
-                    <asp:LinkButton ID="btnXoa" OnClientClick="return confirm('Bạn có chắc chắn muốn xóa môn học này ra khỏi danh sách?')"
-                        runat="server" CommandName="Delete" CssClass="btn btn-danger">
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+            <asp:GridView ID="gvkhoa" runat="server" AutoGenerateColumns="False" DataSourceID="ods_khoa" CssClass="table table-bordered table-hover "  AllowPaging="True" PageSize="5" DataKeyNames="MaKH">
+                <Columns>
+                    <asp:BoundField DataField="MaKH" HeaderText="Mã khoa" SortExpression="MaKH" />
+                    <asp:BoundField DataField="TenKH" HeaderText="Tên khoa" SortExpression="TenKH" />
+                    <asp:TemplateField HeaderText="Chọn tác vụ">
+                        <HeaderStyle CssClass="text-center" />
+                        <ItemStyle CssClass="text-center" />
+                        <ItemTemplate>
+                            <asp:Button ID="btnSua" runat="server" Text="Sửa" CommandName="Edit" CssClass="btn btn-primary" />
+                            <asp:LinkButton ID="btnXoa" OnClientClick="return confirm('Bạn có chắc chắn muốn xóa môn học này ra khỏi danh sách?')"
+                                runat="server" CommandName="Delete" CssClass="btn btn-danger">
                             <i class="bi bi-trash"></i>Xóa
                         </asp:LinkButton>
-                </ItemTemplate>
-                <EditItemTemplate>
-                    <asp:Button ID="btnUpdate" runat="server" Text="Cập nhật" CssClass="btn btn-success" CommandName="Update" />
-                    <asp:Button ID="btnCancel" runat="server" Text="Hủy" CssClass="btn btn-warning" CommandName="Cancel" />
-                </EditItemTemplate>
-            </asp:TemplateField>
-        </Columns>
-         <HeaderStyle BackColor="#0066cc" ForeColor="#ffffff" />
-    </asp:GridView>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:Button ID="btnUpdate" runat="server" Text="Cập nhật" CssClass="btn btn-success" CommandName="Update" />
+                            <asp:Button ID="btnCancel" runat="server" Text="Hủy" CssClass="btn btn-warning" CommandName="Cancel" />
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+                <HeaderStyle BackColor="#0066cc" ForeColor="#ffffff" />
+                <PagerStyle CssClass="pagination-ys" HorizontalAlign="Center" />
+            </asp:GridView>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 
     <asp:ObjectDataSource ID="ods_khoa" runat="server"
         DeleteMethod="Delete"

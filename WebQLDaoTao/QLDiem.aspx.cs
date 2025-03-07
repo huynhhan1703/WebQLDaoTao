@@ -17,9 +17,6 @@ namespace WebQLDaoTao
             base.Page_Load(sender, e);
             if (!Page.IsPostBack)
             {
-                ddlMonHoc.DataSource = mhDao.getAll();
-                ddlMonHoc.DataTextField = "tenmh";
-                ddlMonHoc.DataValueField = "mamh";
                 ddlMonHoc.DataBind();
                 ddlMonHoc.Items.Insert(0, new ListItem("--Chọn môn học-", ""));
             }
@@ -50,10 +47,6 @@ namespace WebQLDaoTao
             gvKetQua.DataBind();
         }
 
-        protected void gvKetQua_SelectedIndexChanged1(object sender, EventArgs e)
-        {
-
-        }
         private int Count()
         {
             int count = gvKetQua.Rows.Count;
@@ -74,12 +67,6 @@ namespace WebQLDaoTao
             }
             gvKetQua.DataSource = odsKetQua.Select();
             gvKetQua.DataBind();
-        }
-
-
-        protected void chkALL_CheckedChanged(object sender, EventArgs e)
-        {
-            
         }
 
         protected void chkAll_CheckedChanged1(object sender, EventArgs e)

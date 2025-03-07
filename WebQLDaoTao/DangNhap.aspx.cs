@@ -27,7 +27,7 @@ namespace WebQLDaoTao
             }
             else
             {
-                lbThongbao.Text = "dang nhap that bai";
+                lbThongbao.Text = "Đăng nhập thất bại !";
             }
         }
 

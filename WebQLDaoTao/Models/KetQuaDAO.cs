@@ -34,8 +34,11 @@ namespace WebQLDaoTao.Models
                 kq.Id = int.Parse(dr["Id"].ToString());
                 kq.MaSV = dr["Masv"].ToString();
                 kq.MaMH = dr["mamh"].ToString();
-                kq.Diem = string.IsNullOrEmpty(dr["diem"].ToString()) ? 0 : float.Parse(dr["diem"].ToString());
                 kq.HoTenSV = dr["hosv"] + " " + dr["tensv"];
+                if(dr["diem"]!=DBNull.Value)
+                {
+                    kq.Diem = double.Parse(dr["diem"].ToString());
+                }
                 dsKetQua.Add(kq);
             }
             return dsKetQua;
